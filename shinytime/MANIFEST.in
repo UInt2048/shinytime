@@ -1,0 +1,2 @@
+include distjs/*
+recursive-include distjs *.js *.map
