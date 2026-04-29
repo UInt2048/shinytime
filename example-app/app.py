@@ -1,9 +1,9 @@
-import sys, os
+from datetime import datetime
 from shiny import App, reactive, render, ui
 from shinytime import input_time
 
 app_ui = ui.page_fluid(
-    input_time("my_time", "Select Time"),
+    input_time("my_time", "Select Time", datetime.now().strftime("%H:%M:%S"), seconds=False, minute_step=2),
     ui.input_action_button("go", "Go"),
     ui.output_ui("output_time"),
 )

@@ -10,8 +10,19 @@ input_time_deps = HTMLDependency(
     script={"src": "index.js", "type": "module"},
 )
 
-def input_time(id: str, label: str = "Time", value: str = "12:00:00"):
+def input_time(id: str, label: str = "Time", value: str = "12:00:00",
+    seconds: bool = True, minute_step: int | None = None, width: str | None = None):
+    step = 1 if seconds else 60 * (minute_step if minute_step is not None else 1)
     return ui.div(
         ui.HTML(label),
-        Tag("time-picker", input_time_deps, id=resolve_id(id), **{"initial-value": value}),
+        Tag(
+            "time-picker",
+            input_time_deps,
+            id=resolve_id(id),
+            **{
+                "initial-value": value,
+                "step-seconds": step,
+                "input-width": width,
+            },
+        ),
     )

@@ -5,10 +5,12 @@
     connectedCallback() {
       const input = document.createElement("input");
       input.type = "time";
-      input.step = "1";
+      input.step = this.getAttribute("step-seconds") || "1";
+      console.log(input.step);
       input.value = this.getAttribute("initial-value") || "12:00:00";
+      const width = this.getAttribute("input-width") || "160px";
       input.style.cssText = `
-      width: 160px; 
+      width: ${width}; 
       padding: 8px 12px; 
       border: 1px solid #ccc; 
       border-radius: 4px;

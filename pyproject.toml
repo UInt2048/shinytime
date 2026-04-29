@@ -4,8 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shinytime"
-version = "0.1"
+readme = "README.md"
+version = "0.1.1"
 dependencies = ["shiny >= 0.6.0"]
+
+[project.urls]
+Source = "https://github.com/UInt2048/shinytime"
+Tracker = "https://github.com/UInt2048/shinytime/issues"
 
 [tool.setuptools]
 packages = ["shinytime"]
